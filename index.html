@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
 
 <head>
     <title>Crafto - The Multipurpose HTML5 Template</title>
@@ -33,17 +33,37 @@
                 max-height: 160px;
             }
         }
+        .loader {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     </style>
 </head>
 
-<body data-mobile-nav-style="classic" class="custom-cursor">
+<body data-mobile-nav-style="classic" class="custom-cursor loading-body">
+    <div class="loader" id="loader">
+            <div class="text-center">
+                <img src="images/icon2x.png" alt="loader" class="" />
+                <p>Cargando...</p>
+            </div>
+    </div>
     <!-- start cursor -->
+    <div id="all-sections" hidden>
+
     <div class="cursor-page-inner">
         <div class="circle-cursor circle-cursor-inner"></div>
         <div class="circle-cursor circle-cursor-outer"></div>
     </div>
-    <!-- end cursor -->
-    <!-- start header -->
+        <!-- end cursor -->
+        <!-- start header -->
     <header>
         <!-- start navigation -->
         <nav class="navbar navbar-expand-lg header-transparent bg-transparent disable-fixed">
@@ -1121,6 +1141,7 @@
             <span class="scroll-text">Scroll</span><span class="scroll-line"><span class="scroll-point"></span></span>
         </a>
     </div>
+</div>
     <!-- end scroll progress -->
     <!-- javascript libraries -->
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -1240,6 +1261,19 @@
 
     </script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script>
+        // set loader before the page load
+        // document on ready function
+        $(document).ready(function () {
+            // loader
+            setTimeout(function () {
+                // remove loader
+                $('#loader').remove();
+                // all-sections hidden false
+                document.getElementById('all-sections').hidden = false;
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>
